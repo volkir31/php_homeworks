@@ -1,6 +1,4 @@
 <?php
-//$pass = password_hash('111', PASSWORD_ARGON2ID);
-//var_dump(password_verify('111', $pass));
 function getUserList(array $file):array{
     $users = [];
     foreach ($file as $index => $line) {
@@ -9,14 +7,40 @@ function getUserList(array $file):array{
     }
     return $users;
 }
-function existsUser(string $login){
+
+function existsUser(string $login):array{
     $file = file(__DIR__.'/Users.txt');
     $users = getUserList($file);
     foreach ($users as $index => $user) {
-        if((string)$user[0] == (string)$login) return true;
+        if((string)$user[0] == (string)$login) return [true,$user];
+    }
+    return [false,[]];
+}
+
+function checkPassword(string $login, string $password):bool{
+    $userData = existsUser($login);
+    if(true === $userData[0]){
+        if (md5($password) === $userData[1][1]){
+            $_SESSION['name'] = $userData[1][0];
+            setcookie('name', $userData[1][0]);
+            return true;
+        }
     }
     return false;
 }
 
-var_dump(existsUser(''));
+function getCurrentUser():string{
+       return $_SESSION['name'];
+}
+
+$user = $_POST;
+if($user) {
+    if(checkPassword($user['login'], $user['password'])){
+        header('location: /php_homeworks/fifth/index.php');
+    }
+    else{
+        echo 'Error! wrong password';
+    }
+
+}
 
