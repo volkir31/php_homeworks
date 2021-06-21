@@ -7,25 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        img{
+        img {
             height: 500px;
             margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <?php
-    $fileNames = scandir( __DIR__.'/images');
-    unset($fileNames[0]);
-    unset($fileNames[1]);
+<?php
+$fileNames = scandir(__DIR__ . '/images');
+unset($fileNames[0]);
+unset($fileNames[1]);
 
-    foreach ($fileNames as $index => $fileName) {
-        echo "<img src='images/$fileName'>";
-    }
-    ?>
-    <form action="pictureAdd.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="img[]" multiple>
-        <button type="submit">Submit</button>
-    </form>
+foreach ($fileNames as $index => $fileName) {
+    echo "<img src='images/$fileName'>";
+}
+?>
+<form action="pictureAdd.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="img[]" multiple>
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>

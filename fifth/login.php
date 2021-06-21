@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
 session_start();
-if (''!==$_COOKIE['login']){
+if (NULL!==$_COOKIE['name']){
     header('location: /php_homeworks/fifth/index.php');
 }
 ?>
@@ -19,5 +19,6 @@ if (''!==$_COOKIE['login']){
         <input type="password" name="password" placeholder="password">
         <button type="submit">Sign in</button>
     </form>
+    <?php var_dump($_COOKIE['name'])?>
 </body>
 </html>
