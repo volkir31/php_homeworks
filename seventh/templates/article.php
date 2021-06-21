@@ -1,9 +1,3 @@
-<?php
-/**
- * @var View $view
- */
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,17 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-//var_dump($view);
-foreach ($view->getData() as $item) {
-    ?>
-    <div class="note"><?= $item ?></div>
-    <?php
-}
-?>
-<form action="" method="post">
-    <input type="text" name="note">
-    <button type="submit">Submit</button>
-</form>
+    <?=$data[0]?>
 </body>
 </html>

@@ -1,9 +1,3 @@
-<?php
-/**
- * @var View $view
- */
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,8 +9,7 @@
 </head>
 <body>
 <?php
-//var_dump($view);
-foreach ($view->getData() as $item) {
+foreach ($data as $item) {
     ?>
     <div class="note"><?= $item ?></div>
     <?php

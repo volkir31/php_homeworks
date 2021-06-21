@@ -1,9 +1,3 @@
-<?php
-/**
- * @var View $view
- */
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,16 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-//var_dump($view);
-foreach ($view->getData() as $item) {
-    ?>
-    <div class="note"><?= $item ?></div>
+<ul>
     <?php
-}
-?>
+    foreach ($data as $index => $item) { ?>
+        <li><a href="/php_homeworks/seventh/indexArticle.php?id=<?=$index?>"><?= $item ?></a></li>
+        <?php
+    }
+    ?>
+</ul>
 <form action="" method="post">
-    <input type="text" name="note">
+    <input type="text" name="article">
     <button type="submit">Submit</button>
 </form>
 </body>
