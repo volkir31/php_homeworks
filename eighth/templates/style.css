@@ -1,0 +1,16 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.article {
+    border: 1px solid black;
+}
+
+.article > p,
+.article > h1,
+.article > h2 {
+    border: 1px solid gray;
+    margin: 0;
+}
